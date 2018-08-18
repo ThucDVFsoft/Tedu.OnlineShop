@@ -1,30 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
+using Tedu.OnlineShop.Models;
 
 namespace Tedu.OnlineShop.Controllers
 {
     public class HomeController : Controller
     {
+        // GET: Home
         public ActionResult Index()
         {
-            return View();
-        }
+            // Binding message to View from Controller to View by ViewBag
+            ViewBag.WelcomeMessage = "Hello world from ViewBag";
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            // Binding message to View from Controller to View by Model
+            var messageModel = new MessageModel();
+            messageModel.Welcome = "Hello world from Model";   
+            return View(messageModel); // Pass to View
         }
     }
 }
