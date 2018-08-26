@@ -15,7 +15,6 @@ namespace Tedu.OnlineShop.Controllers
             var messageModel = new MessageModel();
             messageModel.Welcome = "Hello world from Model";   
             return View(messageModel); // Pass to View
-			
         }
     }
 }
