@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Web.Security;
 using Models;
 using Tedu.OnlineShop.Areas.Admin.Code;
 using Tedu.OnlineShop.Areas.Admin.Models;
@@ -13,19 +14,39 @@ namespace Tedu.OnlineShop.Areas.Admin.Controllers
             return View();
         }
 
+        //// Login using session
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Index(LoginModel model)
+        //{
+        //    var result = (new AccountModel()).Login(model.UserName, model.Password);
+
+        //    if (result && ModelState.IsValid)
+        //    {
+        //        SessionHelper.SetSession(new UserSession()
+        //        {
+        //            UserName = model.UserName
+        //        });
+
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    else
+        //    {
+        //        ModelState.AddModelError("", "User name or password is incorrect. Please try again");
+        //    }
+        //    return View(model);
+        //}
+
+        // Login using CustomMembershipProvider
+        // Login using session
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Index(LoginModel model)
         {
-            var result = (new AccountModel()).Login(model.UserName, model.Password);
-
-            if (result && ModelState.IsValid)
+            if (Membership.ValidateUser(model.UserName, model.Password) && ModelState.IsValid)
             {
-                SessionHelper.SetSession(new UserSession()
-                {
-                    UserName = model.UserName
-                });
-                
+                FormsAuthentication.SetAuthCookie(model.UserName, model.RememberMe);
                 return RedirectToAction("Index", "Home");
             }
             else
@@ -33,6 +54,12 @@ namespace Tedu.OnlineShop.Areas.Admin.Controllers
                 ModelState.AddModelError("", "User name or password is incorrect. Please try again");
             }
             return View(model);
+        }
+
+        public ActionResult Logout()
+        {
+            FormsAuthentication.SignOut();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
