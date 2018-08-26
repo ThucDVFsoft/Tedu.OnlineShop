@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tedu.OnlineShop", "Tedu.OnlineShop\Tedu.OnlineShop.csproj", "{455C32AB-0C62-42F6-AE70-7A5EC9EC5DAF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{D1AEFEBB-C2C7-45C1-B8E3-4E699D0C1BFA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{455C32AB-0C62-42F6-AE70-7A5EC9EC5DAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{455C32AB-0C62-42F6-AE70-7A5EC9EC5DAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{455C32AB-0C62-42F6-AE70-7A5EC9EC5DAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1AEFEBB-C2C7-45C1-B8E3-4E699D0C1BFA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1AEFEBB-C2C7-45C1-B8E3-4E699D0C1BFA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1AEFEBB-C2C7-45C1-B8E3-4E699D0C1BFA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1AEFEBB-C2C7-45C1-B8E3-4E699D0C1BFA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
