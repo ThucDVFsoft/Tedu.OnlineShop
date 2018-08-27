@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Models;
+using Models.Framework;
 
 namespace Tedu.OnlineShop.Areas.Admin.Controllers
 {
@@ -32,13 +33,15 @@ namespace Tedu.OnlineShop.Areas.Admin.Controllers
 
         // POST: Admin/Category/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Category category)
         {
             try
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                if(ModelState.IsValid)
+                {
+                    return RedirectToAction("Index");
+                }
+                return View(category);
             }
             catch
             {

@@ -12,10 +12,11 @@ namespace Models.Framework
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "do dai toi da la 50")]
+        [Required(ErrorMessage = "Ban chua nhap Name")]
         public string Name { get; set; }
 
-        [StringLength(50)]
+        [StringLength(50, ErrorMessage = "do dai toi da la 50")]
         public string Alias { get; set; }
 
         public int? ParentID { get; set; }
