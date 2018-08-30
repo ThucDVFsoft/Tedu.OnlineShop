@@ -26,6 +26,7 @@ namespace Tedu.OnlineShop.Areas.Admin.Controllers
         }
 
         // GET: Admin/Category/Create
+        [HttpGet]
         public ActionResult Create()
         {
             return View();
@@ -39,7 +40,14 @@ namespace Tedu.OnlineShop.Areas.Admin.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    return RedirectToAction("Index");
+                    var model = new CategoryModel();
+                    int res = model.Create(category);
+
+                    if (res > 0)
+                    {
+                        return RedirectToAction("Index");
+                    }
+                    ModelState.AddModelError("", "Create error");
                 }
                 return View(category);
             }
